@@ -1,0 +1,64 @@
+================================================================================
+INCIDENT REPORT — CASE IR-2026-0517-FAKE (SYNTHETIC / FOR TESTING ONLY)
+Classification: TLP:AMBER (dummy data — no real threats)
+================================================================================
+
+Executive Summary
+-----------------
+On 2026-05-14, SOC analysts observed outbound beaconing from host WORKSTATION-42
+(10.20.30.41) to multiple external infrastructure nodes. Phishing lure originated
+from billing-notice@evil-corp-phish[.]net (refanged below for internal parsing).
+
+Initial vector: user opened attachment "invoice_Q2.pdf.exe" (hash below).
+
+Affected Assets
+---------------
+- Internal jump host: 192.168.88.12
+- Compromised workstation: 10.20.30.41
+- C2 node (blocked): 203.0.113.77
+- Secondary C2: 198.51.100.199
+- Legacy scanner false positive (ignore): 127.0.0.1
+
+Malware Hashes
+--------------
+MD5 (dropper):    a1b2c3d4e5f6789012345678abcdef01
+SHA-256 (payload):  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+MD5 (second stage):  d41d8cd98f00b204e9800998ecf8427e
+SHA-256 (config blob): 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+
+Network Indicators
+------------------
+C2 URLs observed in proxy logs:
+  http://malicious-site.com/beacon?id=7
+  https://update.evil-corp-phish.net/login
+  hxxp://cdn[.]bad-actor[.]org/pixel.gif
+  http://185.220.101.45:8080/stage2
+
+Additional domains (DNS queries):
+  - command-control.example-threat.io
+  - static.payload-delivery.co.uk
+  - tracking.phish-campaign.biz
+
+Email & Social Engineering
+--------------------------
+Sender: security-alert@evil-corp-phish.net
+Reply-To: helpdesk@fake-microsoft-support.com
+BCC observed: analyst-leak@protonmail.fake
+
+Raw Log Excerpt (Apache combined)
+---------------------------------
+203.0.113.77 - - [14/May/2026:03:22:11 +0000] "GET http://malicious-site.com/shell HTTP/1.1" 404 512 "-" "Mozilla/5.0"
+10.20.30.41 - - [14/May/2026:03:22:15 +0000] "POST https://update.evil-corp-phish.net/gate HTTP/1.1" 200 0
+
+Defanged IOCs (as received from external feed — extractor should refang then defang output)
+-------------------------------------------------------------------------------------------
+hxxps://portal[.]credential-harvest[.]com/verify
+C2 IP: 192[.]0[.]2[.]50
+
+Recommendations
+---------------
+1. Block listed IPs and domains at perimeter.
+2. Hunt for hashes on EDR.
+3. Reset credentials for users who contacted evil-corp-phish.net.
+
+End of report.

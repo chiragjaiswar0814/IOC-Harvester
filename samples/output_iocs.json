@@ -1,0 +1,53 @@
+{
+  "sources": [
+    "C:\\samsung\\IOC-Harvester\\samples\\incident_report_dummy.txt"
+  ],
+  "indicators": {
+    "ipv4": [
+      "10[.]20[.]30[.]41",
+      "192[.]168[.]88[.]12",
+      "203[.]0[.]113[.]77",
+      "198[.]51[.]100[.]199",
+      "127[.]0[.]0[.]1",
+      "185[.]220[.]101[.]45",
+      "192[.]0[.]2[.]50"
+    ],
+    "md5": [
+      "a1b2c3d4e5f6789012345678abcdef01",
+      "d41d8cd98f00b204e9800998ecf8427e"
+    ],
+    "sha256": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+    ],
+    "domains": [
+      "command-control[.]example-threat[.]io",
+      "static[.]payload-delivery[.]co[.]uk",
+      "tracking[.]phish-campaign[.]biz",
+      "evil-corp-phish[.]net"
+    ],
+    "emails": [
+      "billing-notice@evil-corp-phish[.]net",
+      "security-alert@evil-corp-phish[.]net",
+      "helpdesk@fake-microsoft-support[.]com",
+      "analyst-leak@protonmail[.]fake"
+    ],
+    "urls": [
+      "hxxp://malicious-site[.]com/beacon?id=7",
+      "hxxps://update[.]evil-corp-phish[.]net/login",
+      "hxxp://cdn[.]bad-actor[.]org/pixel[.]gif",
+      "hxxp://185[.]220[.]101[.]45:8080/stage2",
+      "hxxp://malicious-site[.]com/shell",
+      "hxxps://update[.]evil-corp-phish[.]net/gate",
+      "hxxps://portal[.]credential-harvest[.]com/verify"
+    ]
+  },
+  "counts": {
+    "ipv4": 7,
+    "md5": 2,
+    "sha256": 2,
+    "domains": 4,
+    "emails": 4,
+    "urls": 7
+  }
+}
