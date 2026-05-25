@@ -150,6 +150,4 @@ This tool uses pattern matching, not threat validation. Extracted values may inc
 
 Sample data in this repository is fictional and intended for testing only.
 
-## License
 
-Specify a license before publishing (e.g. MIT). Add a `LICENSE` file in the repo root and update this section accordingly.
